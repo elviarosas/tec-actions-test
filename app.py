@@ -9,5 +9,5 @@ def index():
     return jsonify({"message": f"it works, {who}!"})
 
 if __name__ == "__main__":
-    app.run(threaded=True, host="0.0.0.0", port=3000)
-
+    port = int(os.environ.get("PORT", 3000))  # toma PORT de Railway, o 3000 si corres local
+    app.run(host="0.0.0.0", port=port)
